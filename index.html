@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joud Darwish | AI-Themed Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: linear-gradient(135deg, #0b0b0b, #1e1e1e);
+        color: #f3f4f6;
+      }
+      .neon-text {
+        color: #ff66cc;
+        text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc;
+      }
+
+      .card {
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(8px);
+        border: 1px solid #ff66cc;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 102, 204, 0.3),
+          0 0 10px rgba(102, 255, 227, 0.1);
+      }
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(255, 102, 204, 0.5),
+          0 0 15px rgba(102, 255, 227, 0.3);
+      }
+      .project-image {
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border: 1px solid #97d9ff;
+      }
+
+      .neon-trail-dot {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, #ff69b4, #ffb6c1);
+        box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4;
+        animation: fadeOut 0.8s forwards;
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans pt-24" id="top">
+    <header
+      class="py-6 shadow-lg border-b border-pink-500 fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50"
+    >
+      <div class="container mx-auto px-6 flex justify-between items-center">
+        <h1 class="text-3xl font-bold neon-text">Joud Darwish</h1>
+        <nav class="space-x-6">
+          <a href="#about" class="hover:text-pink-400">About</a>
+          <a href="#projects" class="hover:text-pink-400">Projects</a>
+          <a href="#experience" class="hover:text-pink-400">Experience</a>
+          <a href="#education" class="hover:text-pink-400">Education</a>
+          <a href="#contact" class="hover:text-pink-400">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <canvas id="ai-bg" class="fixed inset-0 w-full h-full -z-10"></canvas>
+    
+
+    <section
+      id="about"
+      class="py-16 container mx-auto px-6 relative overflow-hidden"
+    >
+      <div
+        id="about-box"
+        class="bg-pink-400/40 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-pink-300/50 max-w-3xl"
+        style="
+          box-shadow: 0 0 20px rgba(255, 182, 193, 0.8),
+            0 0 40px rgba(255, 105, 180, 0.6);
+        "
+      >
+        <h2 class="text-3xl font-bold neon-text mb-4">About Me</h2>
+        <p class="text-lg text-white p-4 rounded-md bg-black/70">
+          I am a Frontend Developer passionate about building scalable,
+          intelligent, and user-friendly applications. My expertise lies in
+          Angular, TypeScript, and API integrations, with a focus on delivering
+          clean code and futuristic UI/UX experiences.
+        </p>
+      </div>
+    </section>
+
+
+
+ 
+<!--  -->
+<section id="projects" class="py-16 px-6">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold neon-text mb-8">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Project Card -->
+      <div class="card p-6 rounded-lg cursor-pointer hover:scale-105 transition" 
+           
+           onclick="openModal('The Boulevard Dashboard','-Developed responsive, modular admin dashboards with seamless API integration and real-time data synchronization. -Implemented dynamic charts, tables, and filters to enhance data visualization and user experience. -Collaborated closely with backend teams to ensure smooth API communication and optimized performance.')">
+        <div class="w-full h-48 overflow-hidden rounded-md mb-4">
+          <img src="/imgs/blvrd.jpeg" alt="Boulevard Project" class="w-full h-full object-cover object-top"/>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-pink-300">The Boulevard Dashboard</h3>
+        <p>Developed responsive, modular admin dashboards with seamless API integration and real-time data handling.</p>
+      </div>
+
+      <!-- Project Card -->
+      <div class="card p-6 rounded-lg cursor-pointer hover:scale-105 transition" 
+           onclick="openModal('Water Sector Portal','Built admin interfaces for user and data management, maintaining a futuristic design and smooth workflows.')">
+        <div class="w-full h-48 overflow-hidden rounded-md mb-4">
+        <video src="/imgs/swa.mp4" alt="Water Sector Portal" class="w-full h-full object-cover object-top" autoplay loop muted playsinline></video>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-pink-300">Water Sector Portal</h3>
+        <p>Built admin interfaces for user and data management, maintaining a futuristic design and smooth workflows.</p>
+      </div>
+
+      <!-- Project Card -->
+      <div class="card p-6 rounded-lg cursor-pointer hover:scale-105 transition" 
+           onclick="openModal('Zakham Website','Developed and optimized the admin dashboard, enabling admins to add, update, and remove projects and services displayed on the main website. Collaborated on localization, ensuring smooth Arabic–English translation. Enhanced UI/UX and performance.')">
+        <div class="w-full h-48 overflow-hidden rounded-md mb-4">
+          <img src="/imgs/zakham.jpeg" alt="Zakham Website" class="w-full h-full object-cover object-top"/>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-pink-300">Zakham Website</h3>
+        <p>Developed and optimized the admin dashboard, collaborated on localization, and improved UI/UX performance.</p>
+      </div>
+
+      <!-- Project Card -->
+      <div class="card p-6 rounded-lg cursor-pointer hover:scale-105 transition" 
+           onclick="openModal('Task Manager App','Created a practice app using Angular to enhance state management and logic handling, with an AI-inspired design.')">
+        <div class="w-full h-48 overflow-hidden rounded-md mb-4">
+          <img src="/imgs/taskManager.png" alt="Task Manager App" class="w-full h-full object-cover object-top"/>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-pink-300">Ringneck AI</h3>
+        <p>Created a practice app using Angular to enhance state management and logic handling, with an AI-inspired design.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="projectModal" class="fixed inset-0 bg-black bg-opacity-70 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 max-w-lg w-full relative">
+    <button onclick="closeModal()" class="absolute top-3 right-3 text-black text-xl font-bold">&times;</button>
+    <h3 id="modalTitle" class="text-2xl font-bold mb-2 text-pink-500"></h3>
+    <p id="modalDescription" class="text-gray-700"></p>
+  </div>
+</div>
+<!--  -->
+
+    <section id="experience" class="py-16 container mx-auto px-6">
+      <h2 class="text-3xl font-bold neon-text mb-8">Experience</h2>
+      <ul class="space-y-6">
+        <li class="card p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-pink-300">
+            Frontend Developer - Node Technologies
+          </h3>
+          <p>
+            Aug 2024 – Present | Built enterprise dashboards with Angular and
+            Tailwind, integrated REST APIs, and collaborated with backend
+            developers to deliver scalable, production-ready solutions.
+          </p>
+        </li>
+        <li class="card p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-pink-400">
+            COOP Intern - Ringneck AI
+          </h3>
+          <p>
+            Feb 2024 – Aug 2024 | Created and managed websites using Webflow,
+            designed modern interfaces on Figma, and developed business
+            portfolios and other graphic assets using Canva. Worked on
+            integrating APIs with FastAPI and optimizing website workflows for a
+            seamless user experience.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="education" class="py-16 container mx-auto px-6">
+      <h2 class="text-3xl font-bold neon-text mb-8">Education</h2>
+      <div class="card p-6 rounded-lg">
+        <h3 class="text-xl font-bold text-pink-300">
+          B.Sc. in Computer Applications (Web Development)
+        </h3>
+        <p>Arab Open University, Riyadh (2020 – 2024) | GPA: 3.92 / 4.0</p>
+        <p>
+          Graduated with high distinction while focusing on software
+          development, web applications, and user experience design.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 border-t border-pink-500 text-center">
+      <h2 class="text-3xl font-bold neon-text mb-4">Contact Me</h2>
+      <p>
+        Email:
+        <a href="mailto:jahmed@nodetech.com.sa" class="underline text-pink-400"
+          >jahmed@nodetech.com.sa</a
+        >
+      </p>
+      <p>Phone: +966 55 112 2549</p>
+      <p>
+        Download CV:
+        <a
+          href="/mnt/data/Joud_Darwish_CV.pdf"
+          class="underline text-pink-400"
+          target="_blank"
+          >Click here to view</a
+        >
+      </p>
+    </section>
+
+    <footer class="text-center py-4 border-t border-pink-500 text-gray-400">
+      <p>&copy; 2025 Joud Darwish. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+    <script>
+      const canvas = document.getElementById("ai-bg");
+      const ctx = canvas.getContext("2d");
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resize);
+      resize();
+
+      // Configuration
+      const numDots = 500; // Increase for more density
+      const pinkShades = ["#ffc0cb", "#ff69b4"]; // Baby pink + Hot pink
+      const dots = [];
+
+      // Create dots with random positions, sizes, and speed
+      for (let i = 0; i < numDots; i++) {
+        dots.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: 1 + Math.random() * 3,
+          dx: (Math.random() - 0.5) * 0.5,
+          dy: (Math.random() - 0.5) * 0.5,
+          color: pinkShades[Math.floor(Math.random() * pinkShades.length)],
+        });
+      }
+
+      // Animation loop
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let dot of dots) {
+          ctx.beginPath();
+          ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+          ctx.fillStyle = dot.color;
+          ctx.fill();
+
+          dot.x += dot.dx;
+          dot.y += dot.dy;
+
+          // Bounce off edges
+          if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+          if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+  document.addEventListener("DOMContentLoaded", () => {
+
+      const aboutBox = document.getElementById("top");
+
+  aboutBox.addEventListener("mousemove", (e) => {
+    const rect = aboutBox.getBoundingClientRect();
+    const dot = document.createElement("div");
+    dot.classList.add("neon-trail-dot");
+
+    // Position relative to the about box
+    dot.style.left = e.clientX - rect.left - 6 + "px";
+    dot.style.top = e.clientY - rect.top - 6 + "px";
+
+    // Make sure dots are positioned inside the box
+    dot.style.position = "absolute";
+    aboutBox.appendChild(dot);
+
+    // Clean up after animation
+    setTimeout(() => dot.remove(), 800);
+  });
+});
+
+
+ const modal = document.getElementById('projectModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDescription = document.getElementById('modalDescription');
+
+  function openModal(title, description) {
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeModal() {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+    </script>
+  </body>
+</html>
