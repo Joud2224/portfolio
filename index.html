@@ -82,11 +82,22 @@
   </head>
   <body class="font-sans pt-24" id="top">
     <header
-      class="py-6 shadow-lg border-b border-pink-500 fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50"
+      class="py-4 shadow-lg border-b border-pink-500 fixed top-0 left-0 w-full bg-black bg-opacity-80 z-50"
     >
-      <div class="container mx-auto px-6 flex justify-between items-center">
-        <h1 class="text-3xl font-bold neon-text">Joud Darwish</h1>
-        <nav class="space-x-6">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-2xl md:text-3xl font-bold neon-text">Joud Darwish</h1>
+        <!-- Mobile menu button -->
+        <button
+          id="nav-toggle"
+          class="md:hidden text-pink-400 focus:outline-none"
+          aria-label="Open navigation menu"
+        >
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex space-x-6">
           <a href="#about" class="hover:text-pink-400">About</a>
           <a href="#projects" class="hover:text-pink-400">Projects</a>
           <a href="#experience" class="hover:text-pink-400">Experience</a>
@@ -94,6 +105,33 @@
           <a href="#contact" class="hover:text-pink-400">Contact</a>
         </nav>
       </div>
+      <!-- Mobile nav menu -->
+      <nav
+        id="mobile-nav"
+        class="md:hidden fixed top-16 left-0 w-full bg-black bg-opacity-95 border-b border-pink-500 z-50 hidden"
+      >
+        <div class="flex flex-col items-center py-4 space-y-3">
+          <a href="#about" class="hover:text-pink-400 block w-full text-center">About</a>
+          <a href="#projects" class="hover:text-pink-400 block w-full text-center">Projects</a>
+          <a href="#experience" class="hover:text-pink-400 block w-full text-center">Experience</a>
+          <a href="#education" class="hover:text-pink-400 block w-full text-center">Education</a>
+          <a href="#contact" class="hover:text-pink-400 block w-full text-center">Contact</a>
+        </div>
+      </nav>
+      <script>
+        // Responsive nav toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        navToggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('hidden');
+        });
+        // Hide mobile nav on link click
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.add('hidden');
+          });
+        });
+      </script>
     </header>
 
     <canvas id="ai-bg" class="fixed inset-0 w-full h-full -z-10"  style="pointer-events: none;"  ></canvas>
